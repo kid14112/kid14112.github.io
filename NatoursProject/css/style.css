@@ -25,8 +25,8 @@ body {
 }
 .logo-box {
     position:absolute;
-    top: 40px;
-    left: 40px;
+    top: 5%;
+    left: 3%;
 }
 .logo {
     height: 35px;
@@ -36,8 +36,7 @@ body {
     text-transform: uppercase;
     position: absolute;
     left: 50%;
-    top: 50%;
-    background-color: blue;
+    top: 40%;
     transform: translate(-50%,-50%);
 }
 .heading-primary-main{
@@ -45,11 +44,25 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    animation-name: main;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes main {
+    from { margin-left: -70px;opacity: 0}
+    to { margin-left: 0px;opacity: 1;}
 }
 .heading-primary-sub{
     display:block;
     font-size: 20px;
     letter-spacing: 17px;
     font-weight: 400;
-
+    animation-name: sub;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
+@keyframes sub {
+    from { margin-left: 70px;opacity: 0;}
+    to { margin-left: 0px;opacity: 1;}
+}
+
