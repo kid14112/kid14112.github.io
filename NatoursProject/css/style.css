@@ -22,6 +22,7 @@ body {
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     position: relative;
+    overflow: hidden;
 }
 .logo-box {
     position:absolute;
@@ -31,6 +32,12 @@ body {
 .logo {
     height: 35px;
 }
+
+@keyframes moveLogo {
+    0% {transform: translateX(50px);opacity: 0;}
+    100% { transform: translate(0);opacity: 1;}
+}
+
 .heading-primary{
     color: white;
     text-transform: uppercase;
@@ -44,25 +51,61 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
-    animation-name: main;
+    animation-name: moveInLeft;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-in;
 }
-@keyframes main {
-    from { margin-left: -70px;opacity: 0}
-    to { margin-left: 0px;opacity: 1;}
+@keyframes moveInLeft {
+   0% { opacity: 0;transform: translateX(-100px)}
+   80% { opacity: 0,9;transform: translateX(20px)}
+   100%{ opacity: 1;transform: translate(0)}
 }
 .heading-primary-sub{
     display:block;
     font-size: 20px;
     letter-spacing: 17px;
     font-weight: 400;
-    animation-name: sub;
+    animation-name: moveInRight;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-in;
 }
-@keyframes sub {
-    from { margin-left: 70px;opacity: 0;}
-    to { margin-left: 0px;opacity: 1;}
+@keyframes moveInRight {
+    0% {opacity: 0;transform: translateX(100px)}
+    80% {opacity: 0,9;transform: translateX(-20px)}
+    100% {opacity: 1;transform: translate(0)}
 }
 
+.menu {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+    cursor: pointer;
+    z-index: 3;
+}
+.menu i {
+    font-size: 25px;
+    color: white;
+}
+
+.background-layer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right bottom,#7ed56f,#55c571);
+    left: -100%;
+    transition: 0.5s;
+}
+.background-layer-add {
+    left: 0%;
+    transition: 0.5s;
+}
+.background-menu {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+
+}
